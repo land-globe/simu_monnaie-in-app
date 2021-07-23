@@ -1,15 +1,16 @@
 from datetime import *
-from Users import Users
-from User import User
+# from user_class import User
+# from Users import Users
+# from user_class import User
 
-class Covoit :
+class Covoit() :
     '''Description d'un covoit'''
     def __init__(self, user_id):
         self.conductor_id = user_id
-        self.conductor:User = Users.return_user(self.conductor_id)
+        # self.conductor:User = Users.return_user(self.conductor_id)
         self.start_location = "" #adresse maps
         self.spot_id = 0
-        self.start_time = datetime.timestamp()
+        self.start_time = "demain"
         self.surfoards = 0
         self.max_surfboards_height = 0
         self.levels = [] # Levels : "débutant", "intermédiaire", "expérimenté", "pro"
@@ -45,14 +46,7 @@ class Covoit :
         self.surfers.append(surfer_id)
         self.places_available -= 1
     
-    def cancel_covoit(self) :
-        self.publish = False 
-        ## On sort tout de la BDD
-    
-    def terminate_covoit(self) :
-        '''Après avoir confirmé que le covoit s'est bien déroulé on récompense le conducteur'''
-        award = len(self.surfers)*3 # 3 = la rémunération : 3$ pour chaque personne transportée
-        self.conductor.award(award)
+        
 
 
 
